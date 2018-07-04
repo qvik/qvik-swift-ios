@@ -24,16 +24,8 @@ import UIKit
 
 /// Extensions to the String class.
 public extension String {
-    /**
-    Adds a read-only length property to String.
     
-    - returns: String length in number of characters.
-    */
-    public var length: Int {
-        return self.count
-    }
-
-    /** 
+    /**
      Trims all the whitespace-y / newline characters off the begin/end of the string.
      
      - returns: a new string with all the newline/whitespace characters removed from the ends of the original string
@@ -93,7 +85,7 @@ public extension String {
     */
     public func substring(startIndex: Int) -> String {
         let start = self.index(self.startIndex, offsetBy: startIndex)
-        return String(self[start..<self.endIndex])
+        return String(self[start...])
     }
 
     /**
@@ -108,15 +100,14 @@ public extension String {
 
     /**
      Returns a substring matching the given range.
-     
+
      - parameter r: range for substring to return
      - returns: substring matching the range r
      */
     subscript (r: Range<Int>) -> String {
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(start, offsetBy: r.upperBound - r.lowerBound)
-        
-        return String(self[Range(start ..< end)])
+        return String(self[start..<end])
     }
 
     /**
@@ -128,7 +119,7 @@ public extension String {
     */
     public func splitEqually(length: Int) -> [String] {
         var index = 0
-        let len = self.length
+        let len = self.count
         var strings: [String] = []
         
         while index < len {
@@ -151,7 +142,7 @@ public extension String {
      - returns: the bounding rectangle required to draw the string
      */
     public func boundingRectWithFont(_ font: UIFont, constrainedToSize size: CGSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)) -> CGRect {
-        let attributedString = NSAttributedString(string: self, attributes: [NSAttributedStringKey.font: font])
+        let attributedString = NSAttributedString(string: self, attributes: [NSAttributedString.Key.font: font])
         return attributedString.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
     }
 

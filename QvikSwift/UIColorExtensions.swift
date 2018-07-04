@@ -50,12 +50,12 @@ public extension UIColor {
             hexString = hexString.substring(startIndex: 1)
         }
         
-        if (hexString.length != 6) && (hexString.length != 8) {
+        if (hexString.count != 6) && (hexString.count != 8) {
             // Color string is invalid format; return white
             self.init(white: 1.0, alpha: 1.0)
         } else {
             // If the format is RRGGBB instead of RRGGBBAA, use FF as alpha component
-            if hexString.length == 6 {
+            if hexString.count == 6 {
                 hexString = "\(hexString)FF"
             }
             

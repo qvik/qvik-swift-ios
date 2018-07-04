@@ -25,13 +25,6 @@ import XCTest
 
 class StringExtensionsTests: XCTestCase {
     
-    func testLength() {
-        let s = "hello, world"
-        XCTAssert(s.length == 12)
-        let s2 = "abc123"
-        XCTAssert(s2.length == 6)
-    }
-    
     func testTrim() {
         XCTAssert(" foo bar ".trim() == "foo bar")
         XCTAssert("foo\nbar".trim() == "foo\nbar")

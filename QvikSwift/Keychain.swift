@@ -26,6 +26,8 @@ import Foundation
  A generic keychain wrapper utility. For information on the keychain concept, see:
  `https://developer.apple.com/library/content/documentation/Security/Conceptual/keychainServConcepts/02concepts/concepts.html`
  */
+
+// swiftlint:disable identifier_name
 open class Keychain {
     private let serviceName: String
     private let accessMode: String
