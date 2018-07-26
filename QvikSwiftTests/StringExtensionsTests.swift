@@ -24,20 +24,20 @@ import UIKit
 import XCTest
 
 class StringExtensionsTests: XCTestCase {
-    
+
     func testTrim() {
         XCTAssert(" foo bar ".trim() == "foo bar")
         XCTAssert("foo\nbar".trim() == "foo\nbar")
         XCTAssert("http://foo/bar ".trim() == "http://foo/bar")
         XCTAssert("\rfoo\nbar \n".trim() == "foo\nbar")
     }
-    
+
     func testUrlEncoding() {
         let s = "foo bar kek! bur & diu : dau"
         let encoded = s.urlEncoded
         XCTAssert(encoded == "foo%20bar%20kek!%20bur%20&%20diu%20:%20dau")
     }
-    
+
     func testContains() {
         let subs = "foo"
         let s1 = "Hello, world, this is foo bar!"
@@ -45,7 +45,7 @@ class StringExtensionsTests: XCTestCase {
         XCTAssert(s1.contains(subs))
         XCTAssert(!s2.contains(subs))
     }
-    
+
     func testSplit() {
         let string = "123 4567 abcdef"
         let split = string.split(" ")
@@ -53,7 +53,7 @@ class StringExtensionsTests: XCTestCase {
         XCTAssert(split[1] == "4567")
         XCTAssert(split[2] == "abcdef")
     }
-    
+
     func testSubstring() {
         let expected1 = " cat"
         let s1 = "A dog, cat and mouse had a party."
@@ -84,7 +84,7 @@ class StringExtensionsTests: XCTestCase {
         XCTAssert(parts2[2] == "56")
         XCTAssert(parts2[3] == "7")
     }
-    
+
     /*
      The comparison values in testBoundingRect() are what the size of a
      UILabel with the same values ends up being, as manually tested in
@@ -99,22 +99,22 @@ class StringExtensionsTests: XCTestCase {
         XCTAssert(rect.height > size.height - 1)
         XCTAssert(rect.height <= size.height)
     }
-    
+
     func testBoundingRect() {
         let str1 = "Label"
         let font1 = UIFont(name: "HelveticaNeue", size: 17)!
-        let rect1 = str1.boundingRectWithFont(font1)
+        let rect1 = str1.boundingRect(font: font1)
         let size1 = CGSize(width: 42, height: 20)
         assertRect(rect1, matchesExpectedSize: size1)
         let str2 = "Longer string with bold font"
         let font2 = UIFont(name: "Courier-Bold", size: 12)!
-        let rect2 = str2.boundingRectWithFont(font2)
+        let rect2 = str2.boundingRect(font: font2)
         let size2 = CGSize(width: 202, height: 12)
         assertRect(rect2, matchesExpectedSize: size2)
         let str3 = "Even longer string with size constraint breaking it to multiple lines"
         let font3 = UIFont(name: "TimesNewRomanPS-ItalicMT", size: 20)!
         let constraint3 = CGSize(width: 120, height: CGFloat.greatestFiniteMagnitude)
-        let rect3 = str3.boundingRectWithFont(font3, constrainedToSize: constraint3)
+        let rect3 = str3.boundingRect(font: font3, constrainedToSize: constraint3)
         let size3 = CGSize(width: 120, height: 111)
         assertRect(rect3, matchesExpectedSize: size3)
     }

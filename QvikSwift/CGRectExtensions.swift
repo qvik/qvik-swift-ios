@@ -24,7 +24,7 @@ import UIKit
 
 /// Extensions to the CGRect class.
 public extension CGRect {
-    
+
     /**
     Returns a scaled version of the rect. The rect will be scaled around it's
     midpoint.
@@ -32,16 +32,16 @@ public extension CGRect {
     - parameter x: x scaler
     - parameter y: y scaler
     */
-    public func scaled(x: CGFloat, y: CGFloat) -> CGRect {
+    func scaled(x: CGFloat, y: CGFloat) -> CGRect {
         let w = self.width * x
         let h = self.height * y
         let wd = w - self.width
         let hd = h - self.height
         return CGRect(x: self.origin.x - (wd / 2), y: self.origin.y - (hd / 2), width: w, height: h)
     }
-    
+
     /// Shorthand access to the rect's upper left corner's x coordinate
-    public var x: CGFloat {
+    var x: CGFloat {
         get {
             return origin.x
         }
@@ -49,9 +49,9 @@ public extension CGRect {
             origin.x = newValue
         }
     }
-    
+
     /// Shorthand access to the rect's upper left corner's y coordinate
-    public var y: CGFloat {
+    var y: CGFloat {
         get {
             return origin.y
         }

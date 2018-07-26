@@ -23,7 +23,8 @@
 import Foundation
 
 /// Represents a callback for an UIGestureRecognizer
-@objc private class UIGestureRecognizerTarget: NSObject {
+@objc
+private class UIGestureRecognizerTarget: NSObject {
     private static var associationKey: UInt8 = 0
 
     /// Callback function; either with UIGestureRecognizer parameter or none at all
@@ -40,7 +41,8 @@ import Foundation
     }
 
     /// Receives the gesture and passes it on to the callback
-    @objc fileprivate func action(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc
+    fileprivate func action(_ gestureRecognizer: UIGestureRecognizer) {
         if let callbackWithRecognizer = callback as? ((UIGestureRecognizer) -> Void) {
             callbackWithRecognizer(gestureRecognizer)
         } else if let callback = callback as? (() -> Void) {

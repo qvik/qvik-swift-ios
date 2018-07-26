@@ -49,19 +49,19 @@ class UIImageExtensionsTests: XCTestCase {
     func testImageWithNormalizedOrientation() {
         let image = createImage()
         let normalized = image.imageWithNormalizedOrientation()
-        
+
         XCTAssert(image.width == normalized.width)
         XCTAssert(image.height == normalized.height)
         XCTAssert(normalized.imageOrientation == .up)
     }
-    
+
     func testScaleDown() {
         let image = createImage()
         let scaledDown = image.scaleDown(maxSize: CGSize(width: 200, height: 150))
         XCTAssert(scaledDown.size.width == 200)
         XCTAssert(scaledDown.size.height == 150)
     }
-    
+
     func testScale() {
         let scaledSize = CGSize(width: 55, height: 66)
         let image = createImage()
@@ -85,14 +85,14 @@ class UIImageExtensionsTests: XCTestCase {
         XCTAssert(abs(aspect2 - origAspect) < 0.01)
         XCTAssert(scaled2.scale == 2.0)
     }
-    
+
     func testCrop() {
         let image = createImage()
         let cropped = image.cropImageToSquare()
         let diff = abs(cropped.width - cropped.height)
         XCTAssert(diff <= 1, "Cropped image is not roughly a square!")
     }
-    
+
     func testBlur() {
         let image = createImage()
         let blurred = image.blur(radius: 5.0, algorithm: .tentConvolve)

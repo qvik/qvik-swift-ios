@@ -27,25 +27,26 @@ public extension UIResponder {
     fileprivate struct CurrentFirstResponder {
         static var currentFirstResponder: UIResponder?
     }
-    
+
     // MARK: Private methods
-    
-    @objc func findFirstResponder() {
+
+    @objc
+    func findFirstResponder() {
         UIResponder.CurrentFirstResponder.currentFirstResponder = self
     }
-    
+
     // MARK: Public methods
-    
+
     /// Returns the current first responder, if any
-    public class func getCurrentFirstResponder() -> UIResponder? {
+    class func getCurrentFirstResponder() -> UIResponder? {
         CurrentFirstResponder.currentFirstResponder = nil
-        
+
         // Sends a message (any message) to the responder chain; the first responder to get it is the First Responder
         UIApplication.shared.sendAction(#selector(findFirstResponder), to: nil, from: nil, for: nil)
-        
+
         return CurrentFirstResponder.currentFirstResponder
     }
-    
+
     /// Resigns the current first responder, if any
     public class func resignCurrentFirstResponder() {
         UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)

@@ -24,7 +24,6 @@ import Foundation
 import XCTest
 
 class CGSizeExtensionsTests: XCTestCase {
-    
     func testAspectSizeToFit() {
         // Check that fitted size dimensions fit max size AND aspect ratio is retained
         let maxSize = CGSize(width: 800, height: 800)

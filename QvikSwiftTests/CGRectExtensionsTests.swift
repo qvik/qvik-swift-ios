@@ -24,17 +24,17 @@ import UIKit
 import XCTest
 
 class CGRectExtensionsTests: XCTestCase {
-    
+
     func testScale() {
         let rect = CGRect(x: 5, y: 10, width: 20, height: 20)
         let scaled = rect.scaled(x: 2, y: 2)
-        
+
         XCTAssert(scaled.minX == -5)
         XCTAssert(scaled.minY == 0)
         XCTAssert(scaled.width == 40)
         XCTAssert(scaled.height == 40)
     }
-    
+
     func testDimensions() {
         var r = CGRect(x: 10, y: 10, width: 10, height: 10)
         XCTAssert(r.width == 10)

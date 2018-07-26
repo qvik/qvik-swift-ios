@@ -25,8 +25,7 @@ import UIKit
 /// Extensions to the UIView class
 public extension UIView {
     /// Provides an IB-configurable mechanism to set corner radius
-    @IBInspectable
-    public var cornerRadius: CGFloat {
+    @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -35,10 +34,9 @@ public extension UIView {
             layer.masksToBounds = newValue > 0
         }
     }
-    
+
     /// Provides an IB-configurable mechanism to set border color
-    @IBInspectable
-    public var borderColor: UIColor? {
+    @IBInspectable var borderColor: UIColor? {
         get {
             if let borderColor = layer.borderColor {
                 return UIColor(cgColor: borderColor)
@@ -50,10 +48,9 @@ public extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
-    
+
     /// Provides an IB-configurable mechanism to set border width
-    @IBInspectable
-    public var borderWidth: CGFloat {
+    @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -61,7 +58,7 @@ public extension UIView {
             layer.borderWidth = newValue
         }
     }
-    
+
     /**
      Renders (snapshots / "screenshots") the view into an image.
      
@@ -69,22 +66,22 @@ public extension UIView {
      - parameter scale: scale of the snapshot taken; default is 0.0 (matches main device screen)
      - returns: the captured image
      */
-    public func snapshot(opaque: Bool = false, scale: CGFloat = 0.0) -> UIImage {
+    func snapshot(opaque: Bool = false, scale: CGFloat = 0.0) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, opaque, scale)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return image!
     }
-    
+
     /// Shorthand access to view's (bounds') size
     var size: CGSize {
         return bounds.size
     }
 
     /// Shorthand access to view's frame x position
-    public var x: CGFloat {
+    var x: CGFloat {
         get {
             return frame.origin.x
         }
@@ -92,9 +89,9 @@ public extension UIView {
             frame.origin.x = newValue
         }
     }
-    
+
     /// Shorthand access to view's frame y position
-    public var y: CGFloat {
+    var y: CGFloat {
         get {
             return frame.origin.y
         }
@@ -102,9 +99,9 @@ public extension UIView {
             frame.origin.y = newValue
         }
     }
-    
+
     /// Shorthand access to view's frame width
-    public var width: CGFloat {
+    var width: CGFloat {
         get {
             return frame.size.width
         }
@@ -112,9 +109,9 @@ public extension UIView {
             frame.size.width = newValue
         }
     }
-    
+
     /// Shorthand access to view's frame height
-    public var height: CGFloat {
+    var height: CGFloat {
         get {
             return frame.size.height
         }

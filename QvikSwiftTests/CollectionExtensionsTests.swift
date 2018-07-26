@@ -24,15 +24,10 @@ import Foundation
 import XCTest
 
 class CollectionExtensionsTests: XCTestCase {
-    
+
     func testSafeIndexing() {
         let array = [1, 2, 3]
         XCTAssert(array[safe: 1] == Optional(2))
         XCTAssert(array[safe: 9001] == nil)
-
-        //TODO check why this does not work for ranges!
-        //let range = 1...3
-        //XCTAssert(range[safe: 1] == Optional(1))
-        //XCTAssert(range[safe: 9001] == nil)
     }
 }

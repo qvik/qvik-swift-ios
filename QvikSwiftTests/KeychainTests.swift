@@ -81,7 +81,7 @@ class KeychainTests: XCTestCase {
             try keychain.addData(key: key, data: data)
             let readData = try keychain.getData(key: key)
 
-            XCTAssert(readData?.count == 0)
+            XCTAssert(readData?.isEmpty ?? false)
         } catch {
             print("Caught exception: \(error)")
             XCTAssert(false)

@@ -27,17 +27,17 @@ class UIResponderExtensionsTests: XCTestCase {
     fileprivate let window = UIWindow()
     fileprivate let viewController = UIViewController()
     fileprivate let textView = UITextView()
-    
+
     override func setUp() {
         super.setUp()
-        
+
         window.addSubview(viewController.view)
         viewController.view.addSubview(textView)
     }
-    
+
     func testGetCurrentFirstResponder() {
         XCTAssert(textView.becomeFirstResponder())
-        
+
         // Apparently the responder chain is not updated immediately; so we'll wait for a later 
         // runloop cycle to check the result.
         runOnMainThreadAfter(delay: 0.1) {
@@ -46,10 +46,10 @@ class UIResponderExtensionsTests: XCTestCase {
             XCTAssert(firstResponder === self.textView)
         }
     }
-    
+
     func testResignCurrentFirstResponder() {
         XCTAssert(textView.becomeFirstResponder())
-        
+
         // Apparently the responder chain is not updated immediately; so we'll wait for a later
         // runloop cycle to check the result.
         runOnMainThreadAfter(delay: 0.1) {

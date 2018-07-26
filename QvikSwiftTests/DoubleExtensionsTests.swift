@@ -24,7 +24,7 @@ import Foundation
 import XCTest
 
 class DoubleExtensionsTests: XCTestCase {
-    
+
     func testRandom() {
         for _ in 0..<10000 {
             let x = Double.random()

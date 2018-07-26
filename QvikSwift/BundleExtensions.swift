@@ -23,11 +23,11 @@
 import Foundation
 
 public extension Bundle {
-    public var versionNumber: String? {
+    var versionNumber: String? {
         return self.infoDictionary?["CFBundleShortVersionString"] as? String
     }
-    
-    public var buildNumber: String? {
+
+    var buildNumber: String? {
         return self.infoDictionary?["CFBundleVersion"] as? String
     }
 }

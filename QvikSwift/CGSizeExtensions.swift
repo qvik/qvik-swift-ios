@@ -23,24 +23,24 @@
 import UIKit
 
 /// Extensions to CGSize type
-public extension CGSize {    
+public extension CGSize {
     /**
      Calculates the maximum size (retaining aspect ratio) to fit the given maximum dimensions. 
      
      - parameter maxDimensions: maximum dimensions to fit the size. neither value can be negative.
      - returns: fitted size with aspect ratio retained
      */
-    public func aspectSizeToFit(maxDimensions maxSize: CGSize) -> CGSize {
+    func aspectSizeToFit(maxDimensions maxSize: CGSize) -> CGSize {
         if (maxSize.width <= 0) || (maxSize.height <= 0) {
             return self
         }
-        
+
         // Decide how much to scale down by looking at the differences in width/height
         // against the max size
         let xratio = maxSize.width / self.width
         let yratio = maxSize.height / self.height
         let ratio = min(xratio, yratio)
-        
+
         return self.applying(CGAffineTransform(scaleX: ratio, y: ratio))
     }
 }

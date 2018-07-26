@@ -32,7 +32,7 @@ public extension NSLayoutConstraint {
      - parameter attribute: which attribute to create the constraint for
      - parameter constant: constant value to use (0 by default)
      */
-    convenience init(item: UIView, toItem: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) {
+    convenience init(item: UIView, toItem: UIView, attribute: NSLayoutAttribute, constant: CGFloat = 0) {
         self.init(item: item, attribute: attribute, relatedBy: .equal, toItem: toItem, attribute: attribute, multiplier: 1, constant: constant)
     }
 
@@ -42,7 +42,7 @@ public extension NSLayoutConstraint {
      - parameter item: first item
      - parameter toItem: second item
      */
-    public static func match(item: UIView, toItem: UIView) -> [NSLayoutConstraint] {
+    static func match(item: UIView, toItem: UIView) -> [NSLayoutConstraint] {
         return [
             NSLayoutConstraint(item: item, toItem: toItem, attribute: .top),
             NSLayoutConstraint(item: item, toItem: toItem, attribute: .right),

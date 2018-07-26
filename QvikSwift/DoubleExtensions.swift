@@ -26,7 +26,7 @@ import UIKit
 public extension Double {
     /// Returns a random number in the range of [0, 1] (inclusive).
     /// - returns: the random number
-    public static func random() -> Double {
+    static func random() -> Double {
         return Double(arc4random()) / Double(UInt32.max)
     }
 
@@ -37,7 +37,7 @@ public extension Double {
      - parameter maxVal: clamp max range
      - returns: the clamped value
      */
-    public func clamp(_ minVal: Double, _ maxVal: Double) -> Double {
+    func clamp(_ minVal: Double, _ maxVal: Double) -> Double {
         return min(maxVal, max(minVal, self))
     }
 }

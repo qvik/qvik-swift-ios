@@ -25,7 +25,7 @@ import UIKit
 import XCTest
 
 class UIColorExtensionsTests: XCTestCase {
-    
+
     func expectValues(_ color: UIColor, red: Int, green: Int, blue: Int, alpha: Int) {
         var fRed: CGFloat = 0
         var fGreen: CGFloat = 0
@@ -36,23 +36,23 @@ class UIColorExtensionsTests: XCTestCase {
         let iGreen = Int(fGreen * 255)
         let iBlue = Int(fBlue * 255)
         let iAlpha = Int(fAlpha * 255)
-        
+
         XCTAssert(iRed == red)
         XCTAssert(iGreen == green)
         XCTAssert(iBlue == blue)
         XCTAssert(iAlpha == alpha)
     }
-    
+
     func testIntInitializer() {
         let color = UIColor(redInt: 100, greenInt: 120, blueInt: 255, alpha: 0.5)
         expectValues(color, red: 100, green: 120, blue: 255, alpha: 127)
     }
-    
+
     func testHexStringInitializer() {
         let color = UIColor(hexString: "#11223344")
         expectValues(color, red: 17, green: 34, blue: 51, alpha: 68)
     }
-    
+
     func testHexInitializer() {
         let color = UIColor(hex: 0x112233)
         expectValues(color, red: 0x11, green: 0x22, blue: 0x33, alpha: 0xFF)

@@ -35,7 +35,7 @@ import Foundation
  */
 open class ReadWriteLock {
     fileprivate var lock: pthread_rwlock_t
-    
+
     /// Lock for reading. Blocks until the lock is acquired.
     open func lockToRead() {
         pthread_rwlock_rdlock(&lock)
@@ -46,47 +46,49 @@ open class ReadWriteLock {
         let res = pthread_rwlock_tryrdlock(&lock)
         return (res == 0)
     }
-    
+
     /// Lock for writing. Blocks until the lock is acquired.
     open func lockToWrite() {
         pthread_rwlock_wrlock(&lock)
     }
-    
+
     /// Attempts to lock for writing; if unsuccessful, returns false.
     open func tryLockToWrite() -> Bool {
         let res = pthread_rwlock_trywrlock(&lock)
         return (res == 0)
     }
-    
+
     /// Unlocks the lock.
     open func unlock() {
         pthread_rwlock_unlock(&lock)
     }
-    
+
     /// Executes a task within a write lock
-    @discardableResult open func withWriteLock<T>(_ task: (() -> T)) -> T {
+    @discardableResult
+    open func withWriteLock<T>(_ task: (() -> T)) -> T {
         defer {
             unlock()
         }
         lockToWrite()
-        
+
         return task()
     }
-    
+
     /// Executes a task within a read lock
-    @discardableResult open func withReadLock<T>(_ task: (() -> T)) -> T {
+    @discardableResult
+    open func withReadLock<T>(_ task: (() -> T)) -> T {
         defer {
             unlock()
         }
         lockToRead()
-        
+
         return task()
     }
-    
+
     deinit {
         pthread_rwlock_destroy(&lock)
     }
-    
+
     public init() {
         lock = pthread_rwlock_t()
         pthread_rwlock_init(&lock, nil)

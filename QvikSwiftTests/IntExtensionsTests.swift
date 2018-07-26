@@ -24,10 +24,10 @@ import Foundation
 import XCTest
 
 class IntExtensionsTests: XCTestCase {
-    
+
     func testRandom() {
         let n = 123
-        
+
         for _ in 0..<10000 {
             let x = Int.random(UInt32(n))
             XCTAssert(x >= 0)

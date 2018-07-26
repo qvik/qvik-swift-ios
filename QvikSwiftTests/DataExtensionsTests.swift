@@ -44,7 +44,7 @@ class DataExtensionsTests: XCTestCase {
         XCTAssert(value.bitPattern == storedValue.bitPattern)
         XCTAssert(value == storedValue)
     }
-    
+
     /// Helper function for testing storing a Double into a Data
     func myTestStoreDouble(bigEndian: Bool) {
         let value = Double(123456.123456789)

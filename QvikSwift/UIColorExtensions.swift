@@ -32,10 +32,10 @@ public extension UIColor {
     - parameter blueInt: value for blue (0-255)
     - parameter alpha: value for alpha (0-1.0)
     */
-    public convenience init(redInt: Int, greenInt: Int, blueInt: Int, alpha: Double) {
-        self.init(red: CGFloat(redInt)/255.0, green: CGFloat(greenInt)/255.0, blue: CGFloat(blueInt)/255.0, alpha: CGFloat(alpha))
+    convenience init(redInt: Int, greenInt: Int, blueInt: Int, alpha: Double) {
+        self.init(red: CGFloat(redInt) / 255.0, green: CGFloat(greenInt) / 255.0, blue: CGFloat(blueInt) / 255.0, alpha: CGFloat(alpha))
     }
-    
+
     /**
     Convenience initializer for creating a UIColor from a hex string; accepted formats are
     RRGGBB, RRGGBBAA, #RRGGBB, #RRGGBBAA. If an invalid input is given as the hex string,
@@ -43,13 +43,13 @@ public extension UIColor {
     
     - parameter hexString: the RGB or RGBA string
     */
-    public convenience init(hexString: String) {
+    convenience init(hexString: String) {
         var hexString = hexString
-        
+
         if hexString.hasPrefix("#") {
             hexString = hexString.substring(startIndex: 1)
         }
-        
+
         if (hexString.count != 6) && (hexString.count != 8) {
             // Color string is invalid format; return white
             self.init(white: 1.0, alpha: 1.0)
@@ -58,7 +58,7 @@ public extension UIColor {
             if hexString.count == 6 {
                 hexString = "\(hexString)FF"
             }
-            
+
             let scanner = Scanner(string: hexString)
             var rgbaValue: UInt32 = 0
             if scanner.scanHexInt32(&rgbaValue) {
@@ -66,23 +66,23 @@ public extension UIColor {
                 let green = (rgbaValue & 0x00FF0000) >> 16
                 let blue = (rgbaValue & 0x0000FF00) >> 8
                 let alpha = rgbaValue & 0x000000FF
-                
+
                 self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0,
-                    blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha) / 255.0)
+                          blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha) / 255.0)
             } else {
                 // Parsing the hex string failed; return white
                 self.init(white: 1.0, alpha: 1.0)
             }
         }
     }
-    
+
     /**
      Convenience initializer for creating a UIColor from an integer value of format
      0xRRGGBB.
      
      - parameter hex: the color value as integer
      */
-    public convenience init(hex: Int) {
+    convenience init(hex: Int) {
         self.init(redInt: (hex >> 16) & 0xff, greenInt: (hex >> 8) & 0xff, blueInt: hex & 0xff, alpha: 1)
     }
 }

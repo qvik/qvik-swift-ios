@@ -25,4 +25,5 @@ extension Data {
 
 let float1 = 123.456
 let data1 = Data(floatValue: float1)
+
 print(data1)

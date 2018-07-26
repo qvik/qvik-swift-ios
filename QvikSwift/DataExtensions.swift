@@ -29,8 +29,8 @@ public extension Data {
 
      - returns: hex string of this data's bytes
     */
-    public func hexString() -> String {
-        return reduce("") {$0 + String(format: "%02x", $1)}
+    func hexString() -> String {
+        return reduce("") { $0 + String(format: "%02x", $1) }
     }
 
     /**
@@ -39,7 +39,7 @@ public extension Data {
      - param floatValue: the Float value to store in the Data buffer
      - param bigEndian: whether to store it as big endian (true) or little endian (false)
      */
-    public init(floatValue: Float, bigEndian: Bool = true) {
+    init(floatValue: Float, bigEndian: Bool = true) {
         var bits = bigEndian ? floatValue.bitPattern.bigEndian : floatValue.bitPattern.littleEndian
         self.init(bytes: &bits, count: MemoryLayout<Float>.size)
     }
@@ -50,7 +50,7 @@ public extension Data {
      - param doubleValue: the Double value to store in the Data buffer
      - param bigEndian: whether to store it as big endian (true) or little endian (false)
      */
-    public init(doubleValue: Double, bigEndian: Bool = true) {
+    init(doubleValue: Double, bigEndian: Bool = true) {
         var bits = bigEndian ? doubleValue.bitPattern.bigEndian : doubleValue.bitPattern.littleEndian
         self.init(bytes: &bits, count: MemoryLayout<Double>.size)
     }
@@ -61,7 +61,7 @@ public extension Data {
      - param bigEndian: true to interpret the data as Big Endian, false to interpret it as Little Endian
      - returns: Represented Float value or nil if incorrect amount of bytes present
      */
-    public func floatValue(bigEndian: Bool = true) -> Float? {
+    func floatValue(bigEndian: Bool = true) -> Float? {
         if self.count != 4 {
             // Incorrect amount of bytes to represent a 32bit Float type
             return nil
@@ -80,7 +80,7 @@ public extension Data {
      - param bigEndian: true to interpret the data as Big Endian, false to interpret it as Little Endian
      - returns: Represented Double value or nil if incorrect amount of bytes present
      */
-    public func doubleValue(bigEndian: Bool = true) -> Double? {
+    func doubleValue(bigEndian: Bool = true) -> Double? {
         if self.count != 8 {
             // Incorrect amount of bytes to represent a 64bit Double type
             return nil

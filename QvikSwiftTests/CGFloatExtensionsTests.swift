@@ -24,7 +24,6 @@ import Foundation
 import XCTest
 
 class CGFloatExtensionsTests: XCTestCase {
-    
     func testRandom() {
         for _ in 0..<10000 {
             let x = CGFloat.random()

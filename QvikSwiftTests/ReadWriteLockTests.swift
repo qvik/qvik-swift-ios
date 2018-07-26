@@ -24,31 +24,30 @@ import Foundation
 import XCTest
 
 class ReadWriteLockTests: XCTestCase {
-    
+
     func testReadLocking() {
         let lock = ReadWriteLock()
         let res1 = lock.tryLockToRead()
         let res2 = lock.tryLockToRead()
         let res3 = lock.tryLockToWrite()
-        
+
         XCTAssert(res1)
         XCTAssert(res2)
         XCTAssert(!res3)
-        
         lock.unlock()
         lock.unlock()
     }
-    
+
     func testWriteLocking() {
         let lock = ReadWriteLock()
         let res1 = lock.tryLockToWrite()
         let res2 = lock.tryLockToRead()
         let res3 = lock.tryLockToWrite()
-        
+
         XCTAssert(res1)
         XCTAssert(!res2)
         XCTAssert(!res3)
-        
+
         lock.unlock()
     }
 }

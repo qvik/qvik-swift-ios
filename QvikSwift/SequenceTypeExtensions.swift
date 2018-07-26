@@ -31,7 +31,7 @@ public extension Sequence where Iterator.Element: Hashable {
 
      - returns: array containing unique set of values from this sequence
      */
-    public func unique() -> [Self.Iterator.Element] {
+    func unique() -> [Self.Iterator.Element] {
         var valueSet = Set<Iterator.Element>()
         return filter {
             if !valueSet.contains($0) {

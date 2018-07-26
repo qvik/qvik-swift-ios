@@ -30,12 +30,12 @@ public extension DateFormatter {
     
     Example of such date string: 2008-05-11T15:30:00.000Z
     */
-    public class func iso8601ZFormatter() -> DateFormatter {
+    class func iso8601ZFormatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = TimeZone(identifier: "UTC")
-        
+
         return formatter
     }
 }

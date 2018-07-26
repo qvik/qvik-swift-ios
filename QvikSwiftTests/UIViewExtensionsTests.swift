@@ -25,14 +25,14 @@ import UIKit
 import XCTest
 
 class UIViewExtensionsTests: XCTestCase {
-    
+
     func testSnapshot() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         let image = view.snapshot()
         XCTAssert(image.size.width == 300)
         XCTAssert(image.size.height == 300)
     }
-    
+
     func testFrameDimensionAccess() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         view.x = 10

@@ -25,7 +25,7 @@ import UIKit
 /// Extensions to CGFloat type
 public extension CGFloat {
     /// Returns a random number in the range of [0, 1] (inclusive).
-    public static func random() -> CGFloat {
+    static func random() -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
 
@@ -36,7 +36,7 @@ public extension CGFloat {
      - parameter maxVal: clamp max range
      - returns: the clamped value
      */
-    public func clamp(_ minVal: CGFloat, _ maxVal: CGFloat) -> CGFloat {
+    func clamp(_ minVal: CGFloat, _ maxVal: CGFloat) -> CGFloat {
         return Swift.min(maxVal, Swift.max(minVal, self))
     }
 }

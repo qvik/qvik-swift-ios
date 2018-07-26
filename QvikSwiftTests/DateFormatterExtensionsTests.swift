@@ -24,7 +24,6 @@ import Foundation
 import XCTest
 
 class NSDateFormatterExtensionsTests: XCTestCase {
-    
     func testParser() {
         let f = DateFormatter.iso8601ZFormatter()
         let date = f.date(from: "2008-05-11T15:30:02.123Z")
@@ -34,7 +33,7 @@ class NSDateFormatterExtensionsTests: XCTestCase {
         let c = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: date!)
 
         let millis = round(Double(c.nanosecond!) / 1000000.0)
-        
+
         XCTAssert(c.year == 2008)
         XCTAssert(c.month == 5)
         XCTAssert(c.day == 11)
@@ -43,7 +42,7 @@ class NSDateFormatterExtensionsTests: XCTestCase {
         XCTAssert(c.second == 02)
         XCTAssert(millis == 123)
     }
-    
+
     func testRender() {
         let f = DateFormatter.iso8601ZFormatter()
         var calendar = Calendar(identifier: Calendar.Identifier.gregorian)

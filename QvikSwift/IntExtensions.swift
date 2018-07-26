@@ -25,7 +25,7 @@ import Foundation
 /// Extensions to Int type
 public extension Int {
     /// Returns a random number in the range of [0, n - 1] (inclusive).
-    public static func random(_ n: UInt32) -> Int {
+    static func random(_ n: UInt32) -> Int {
         return Int(arc4random_uniform(n))
     }
 }

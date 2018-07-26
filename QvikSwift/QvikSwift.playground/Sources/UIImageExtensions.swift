@@ -22,7 +22,7 @@ import Foundation
 import UIKit
 
 /// Extensions to the UIImage class
-extension UIImage {
+public extension UIImage {
     /**
     Returns an scaled-down (to the max size) image of the original image, or the
     original image if max size was not exceeded. Aspect ratio is preserved.
@@ -30,32 +30,32 @@ extension UIImage {
     :param: maxSize maximum size for the new image
     :returns: scaled-down image
     */
-    public func scaleDown(maxSize: CGSize) -> UIImage? {
+    func scaleDown(maxSize: CGSize) -> UIImage? {
         let myWidth = self.size.width
         let myHeight = self.size.height
-        
+
         if maxSize.height >= myHeight && maxSize.width >= myWidth {
             return self
         }
-        
+
         // Decide how much to scale down by looking at the differences in width/height
         // against the max size
         let xratio = maxSize.width / myWidth
         let yratio = maxSize.height / myHeight
         let ratio = min(xratio, yratio)
-        
+
         let size = self.size.applying(CGAffineTransform(scaleX: ratio, y: ratio))
         let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
-        
+
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         draw(in: CGRect(origin: CGPoint.zero, size: size))
-        
+
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+
         return scaledImage
     }
-    
+
     /**
     Crops the image to a square; from the middle of the original image, using the largest
     possible square area that fits in the original image.
@@ -63,7 +63,7 @@ extension UIImage {
     :returns: the cropped image. Note that the dimensions may be off by +-1 pixels.
      If the original image is a CIImage-backed image or errors occur, this returns nil
     */
-    public func cropImageToSquare() -> UIImage? {
+    func cropImageToSquare() -> UIImage? {
         guard let cgImage = self.cgImage else {
             return nil
         }
@@ -74,12 +74,12 @@ extension UIImage {
         }
 
         let contextSize: CGSize = contextImage.size
-        
+
         let posX: CGFloat
         let posY: CGFloat
         let width: CGFloat
         let height: CGFloat
-        
+
         if contextSize.width > contextSize.height {
             posX = ((contextSize.width - contextSize.height) / 2)
             posY = 0
@@ -97,7 +97,7 @@ extension UIImage {
             return nil
         }
         let image = UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
-        
+
         return image
     }
 }

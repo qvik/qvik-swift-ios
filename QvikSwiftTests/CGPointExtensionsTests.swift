@@ -24,12 +24,12 @@ import UIKit
 import XCTest
 
 class CGPointExtensionsTests: XCTestCase {
-    
+
     func testMiddlePoint() {
         let p1 = CGPoint(x: 256, y: 234)
         let p2 = CGPoint(x: -231, y: 879)
         let p3 = p1.middlePoint(p2)
-        
+
         XCTAssert(p3.x == 12.5)
         XCTAssert(p3.y == 556.5)
     }

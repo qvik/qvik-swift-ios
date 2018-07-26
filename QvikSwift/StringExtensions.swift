@@ -24,13 +24,12 @@ import UIKit
 
 /// Extensions to the String class.
 public extension String {
-    
     /**
      Trims all the whitespace-y / newline characters off the begin/end of the string.
      
      - returns: a new string with all the newline/whitespace characters removed from the ends of the original string
      */
-    public func trim() -> String {
+    func trim() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
@@ -39,7 +38,7 @@ public extension String {
     
     - returns: String that is an URL-encoded representation of this string.
     */
-    public var urlEncoded: String? {
+    var urlEncoded: String? {
         return self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
     }
 
@@ -49,20 +48,20 @@ public extension String {
     - parameter separator: string to split the original string by
     - returns: the original string split into parts
     */
-    public func split(_ separator: String) -> [String] {
+    func split(_ separator: String) -> [String] {
         return components(separatedBy: separator)
     }
-    
+
     /**
     Checks whether the string contains a given substring.
     
     - parameter s: substring to check for
     - returns: true if this string contained the given substring, false otherwise.
     */
-    public func contains(_ s: String) -> Bool {
+    func contains(_ s: String) -> Bool {
         return (self.range(of: s) != nil)
     }
-    
+
     /**
     Returns a substring of this string from a given index up the given length.
     
@@ -70,20 +69,20 @@ public extension String {
     - parameter length: number of characters to include in the substring
     - returns: the substring
     */
-    public func substring(startIndex: Int, length: Int) -> String {
+    func substring(startIndex: Int, length: Int) -> String {
         let start = self.index(self.startIndex, offsetBy: startIndex)
         let end = self.index(self.startIndex, offsetBy: startIndex + length)
-        
+
         return String(self[start..<end])
     }
-    
+
     /**
     Returns a substring of this string from a given index to the end of the string.
     
     - parameter startIndex: index of the first character to include in the substring
     - returns: the substring from startIndex to the end of this string
     */
-    public func substring(startIndex: Int) -> String {
+    func substring(startIndex: Int) -> String {
         let start = self.index(self.startIndex, offsetBy: startIndex)
         return String(self[start...])
     }
@@ -117,18 +116,18 @@ public extension String {
     - parameter length: (max) length of each substring
     - returns: the substrings array
     */
-    public func splitEqually(length: Int) -> [String] {
+    func splitEqually(length: Int) -> [String] {
         var index = 0
         let len = self.count
         var strings: [String] = []
-        
+
         while index < len {
             let numChars = min(length, (len - index))
             strings.append(self.substring(startIndex: index, length: numChars))
-            
+
             index += numChars
         }
-        
+
         return strings
     }
 
@@ -141,8 +140,8 @@ public extension String {
      - parameter constrainedToSize: the constraints for drawing
      - returns: the bounding rectangle required to draw the string
      */
-    public func boundingRectWithFont(_ font: UIFont, constrainedToSize size: CGSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)) -> CGRect {
-        let attributedString = NSAttributedString(string: self, attributes: [NSAttributedString.Key.font: font])
+    func boundingRect(font: UIFont, constrainedToSize size: CGSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)) -> CGRect {
+        let attributedString = NSAttributedString(string: self, attributes: [NSAttributedStringKey.font: font])
         return attributedString.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
     }
 
