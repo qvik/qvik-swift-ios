@@ -31,7 +31,7 @@ public extension UIResponder {
     // MARK: Private methods
 
     @objc
-    func findFirstResponder() {
+    private func findFirstResponder() {
         UIResponder.CurrentFirstResponder.currentFirstResponder = self
     }
 

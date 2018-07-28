@@ -64,8 +64,8 @@ public extension UIGestureRecognizer {
 
      - parameter callbackWithRecognizer: the callback closure that is called when a gesture is recognized.
      */
-    convenience init(callbackWithRecognizer: @escaping ((UIGestureRecognizer) -> Void)) {
-        let target = UIGestureRecognizerTarget(callback: callbackWithRecognizer)
+    convenience init(callback: @escaping ((_ recognizer: UIGestureRecognizer) -> Void)) {
+        let target = UIGestureRecognizerTarget(callback: callback)
         self.init(target: target, action: #selector(target.action))
         target.associate(with: self)
     }
