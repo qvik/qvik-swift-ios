@@ -59,6 +59,14 @@ private class UIGestureRecognizerTarget: NSObject {
 /// Extensions to the UIGestureRecognizer class
 public extension UIGestureRecognizer {
     /**
+     Cancels this gesture recognizition.
+     */
+    func cancel() {
+        isEnabled = false
+        isEnabled = true
+    }
+
+    /**
      Convenience initializer that accepts a callback closure instead of a selector. The callback
      must accept a UIGestureRecognizer parameter.
 

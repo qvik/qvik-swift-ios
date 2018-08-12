@@ -10,7 +10,7 @@ To use the library in your projects, add the following (or what ever suits your 
 use_frameworks!
 source 'https://github.com/qvik/qvik-podspecs.git'
 
-pod 'QvikSwift', '~> 4.0'
+pod 'QvikSwift', '~> 5'
 ```
 
 And the following to your source:
@@ -21,6 +21,8 @@ import QvikSwift
 
 ## Changelog
 
+* 5.0.0
+  * Some API breaking changes; swiftlint warning fixes; swift 4.2 compliance
 * 4.0.5
    * Bug fix to UIGestureRecognizerExtensions
 * 4.0.4 
@@ -149,7 +151,7 @@ The library is distributed with the MIT License. Make sure all your source files
 ```
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2016 Qvik (www.qvik.fi)
+// Copyright (c) 2015-2018 Qvik (www.qvik.fi)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

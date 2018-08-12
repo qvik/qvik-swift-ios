@@ -41,7 +41,7 @@ public extension UIColor {
     RRGGBB, RRGGBBAA, #RRGGBB, #RRGGBBAA. If an invalid input is given as the hex string,
     the color is initialized to white.
     
-    - parameter hexString: the RGB or RGBA string
+     - parameter hexString: the RGB ("#RRGGBB") or RGBA ("#RRGGBBAA") string
     */
     convenience init(hexString: String) {
         var hexString = hexString
@@ -77,12 +77,11 @@ public extension UIColor {
     }
 
     /**
-     Convenience initializer for creating a UIColor from an integer value of format
-     0xRRGGBB.
+     Convenience initializer for creating a UIColor from an integer value, eg. 0x0000FF, with alpha = 1.
      
-     - parameter hex: the color value as integer
+     - parameter value: the color value as integer
      */
-    convenience init(hex: Int) {
-        self.init(redInt: (hex >> 16) & 0xff, greenInt: (hex >> 8) & 0xff, blueInt: hex & 0xff, alpha: 1)
+    convenience init(value: Int) {
+        self.init(redInt: (value >> 16) & 0xff, greenInt: (value >> 8) & 0xff, blueInt: value & 0xff, alpha: 1)
     }
 }

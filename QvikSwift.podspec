@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "QvikSwift"
-  s.version      = "4.0.5"
-  s.summary      = "A collection of utilities for Qvik's Swift 4 projects."
+  s.version      = "5.0.0"
+  s.summary      = "A collection of utilities for Qvik's Swift 4.2+ projects."
   s.homepage     = "https://github.com/qvik/qvik-swift-ios"
   
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
