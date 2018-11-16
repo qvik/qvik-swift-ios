@@ -21,6 +21,6 @@ open class ImmediatePanGestureRecognizer: UIPanGestureRecognizer {
 
         super.touchesBegan(touches, with: event)
 
-        state = UIGestureRecognizerState.began
+        state = UIGestureRecognizer.State.began
     }
 }
