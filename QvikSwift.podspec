@@ -16,10 +16,11 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "QvikSwift"
-  s.version      = "6.0.0"
-  s.summary      = "A collection of utilities for Qvik's Swift 5 projects."
-  s.homepage     = "https://github.com/qvik/qvik-swift-ios"
+  s.name          = "QvikSwift"
+  s.version       = "6.0.0"
+  s.swift_version = "5.0"
+  s.summary       = "A collection of utilities for Qvik's Swift 5 projects."
+  s.homepage      = "https://github.com/qvik/qvik-swift-ios"
   
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

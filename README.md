@@ -18,6 +18,13 @@ And the following to your source:
 import QvikSwift
 ```
 
+## Versions
+
+Use the following library versions for the corresponding Swift language versions:
+
+* 6.x - Swift 5
+* 5.x - Swift 4.2
+
 ## Changelog
 
 * 6.0.0
@@ -192,7 +199,7 @@ As a contributor you do not need to do this; we'll update the pod whenever neede
 
 * Update QvikSwift.podspec and set s.version to match the upcoming tag
 * Commit all your changes, merge all pending accepted *Merge ('pull') Requests*
-* Create a new tag following [Semantic Versioning](http://semver.org/); eg. `git tag -a 4.0.1 -m "Your tag comment"`
+* Create a new tag following [Semantic Versioning](http://semver.org/); eg. `git tag -a 6.0.9 -m "Your tag comment"`
 * `git push --tags`
 * `pod repo push qvik-podspecs QvikSwift.podspec`
 
