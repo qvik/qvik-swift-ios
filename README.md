@@ -1,16 +1,15 @@
 # Qvik's Swift utility collection
 
-*This library contains Swift 4 utilities for use in both Qvik's internal and customer projects.*
+*This library contains Swift 5 utilities for use in both Qvik's internal and customer projects.*
 
 ## Usage
 
 To use the library in your projects, add the following (or what ever suits your needs) to your Podfile:
 
 ```ruby
-use_frameworks!
 source 'https://github.com/qvik/qvik-podspecs.git'
 
-pod 'QvikSwift', '~> 5'
+pod 'QvikSwift', '~> 6.0'
 ```
 
 And the following to your source:
@@ -21,6 +20,8 @@ import QvikSwift
 
 ## Changelog
 
+* 6.0.0
+  * Swift 5 compatibility
 * 5.0.0
   * Some API breaking changes; swiftlint warning fixes; swift 4.2 compliance
 * 4.0.5

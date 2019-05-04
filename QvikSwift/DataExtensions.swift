@@ -68,9 +68,9 @@ public extension Data {
         }
 
         if bigEndian {
-            return Float(bitPattern: UInt32(bigEndian: self.withUnsafeBytes { $0.pointee }))
+            return Float(bitPattern: UInt32(bigEndian: withUnsafeBytes { $0.load(as: UInt32.self) }))
         } else {
-            return Float(bitPattern: UInt32(littleEndian: self.withUnsafeBytes { $0.pointee }))
+            return Float(bitPattern: UInt32(littleEndian: withUnsafeBytes { $0.load(as: UInt32.self) }))
         }
     }
 
@@ -87,9 +87,9 @@ public extension Data {
         }
 
         if bigEndian {
-            return Double(bitPattern: UInt64(bigEndian: self.withUnsafeBytes { $0.pointee }))
+            return Double(bitPattern: UInt64(bigEndian: withUnsafeBytes { $0.load(as: UInt64.self) }))
         } else {
-            return Double(bitPattern: UInt64(littleEndian: self.withUnsafeBytes { $0.pointee }))
+            return Double(bitPattern: UInt64(littleEndian: withUnsafeBytes { $0.load(as: UInt64.self) }))
         }
     }
 }

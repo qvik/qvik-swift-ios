@@ -26,7 +26,7 @@ import XCTest
 class DataExtensionsTests: XCTestCase {
 
     func testToHexString() {
-        let data = Data(bytes: [0x20, 0x30, 0x41, 0x51])
+        let data = Data([0x20, 0x30, 0x41, 0x51])
         let hex = data.hexString()
         XCTAssert(hex == "20304151")
     }

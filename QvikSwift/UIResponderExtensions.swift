@@ -48,7 +48,7 @@ public extension UIResponder {
     }
 
     /// Resigns the current first responder, if any
-    public class func resignCurrentFirstResponder() {
+    class func resignCurrentFirstResponder() {
         UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
