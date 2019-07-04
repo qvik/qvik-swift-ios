@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015-2016 Qvik (www.qvik.fi)
+// Copyright (c) 2015-2019 Qvik (www.qvik.fi)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -29,5 +29,10 @@ public extension Bundle {
 
     var buildNumber: String? {
         return self.infoDictionary?["CFBundleVersion"] as? String
+    }
+
+    /// Returns (localized) name for the application for this bundle
+    var displayName: String? {
+        return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
     }
 }

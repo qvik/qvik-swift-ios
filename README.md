@@ -27,6 +27,8 @@ Use the following library versions for the corresponding Swift language versions
 
 ## Changelog
 
+* 6.0.1 
+  * Added Bundle.displayName
 * 6.0.0
   * Swift 5 compatibility
 * 5.0.0
